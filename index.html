@@ -59,21 +59,31 @@
                   {{#times this.rating_helper.empty}}
                     <span class="star"></span>
                   {{/times}}
-                  <span class="reviews">{{#if this.reviews}}{{this.reviews}}{{else}}0{{/if}} reviews</span></div>
+                  <span class="reviews">{{#if this.reviews}}{{this.reviews}}{{else}}0{{/if}} reviews</span>
+              </div>
               <div class="description">{{this.description}}</div>
               <div class="cities">
                 <div><div class="label">Destinations</div><span>{{this.cities.length}} destinations</span></div>
                 <div><div class="label">Starts/Ends in</div><span>{{this.cities.0.name}}</span></div>
                 <div><div class="label">Operator</div><span>{{this.operator_name}}</span></div>
               </div>
-              <div class="dates">
-                  <div><div>Days</div><div class="right">From</div></div>
-                  <div><div class="bold">{{this.length}}</div><div class="right bold">€ {{this.priceRange.min}}</div></div>
-                  {{#if this.dates}}
-                  <div><div>{{this.spaces.0.start}}</div><div class="right">{{this.spaces.0.availability}} spaces left</div></div>
-                  <div><div>{{this.spaces.1.start}}</div><div class="right">{{this.spaces.1.availability}} spaces left</div></div>
-                  {{/if}}
+          </div>
+          <div class="details">
+              {{#if this.discount}}<div class="triangle-topright"><div>{{this.discount}}</div></div>{{/if}}
+              <div class="price">
+                <div>
+                    <div>Days</div>
+                    <div class="bold">{{this.length}}</div>
                 </div>
+                <div>
+                    <div>From</div>
+                    <div class="bold">€ {{this.priceRange.min}}</div>
+                </div>
+              </div>
+              {{#if this.dates}}
+              <div class="dates"><div>{{this.spaces.0.start}}</div><div class="right">{{this.spaces.0.availability}} spaces left</div></div>
+              <div class="dates"><div>{{this.spaces.1.start}}</div><div class="right">{{this.spaces.1.availability}} spaces left</div></div>
+              {{/if}}
               <div class="action">
                   <button type="button">View More</button>
               </div>

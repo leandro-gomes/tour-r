@@ -121,7 +121,6 @@ class Tour {
   }
 
   render() {
-    console.log(this.items);
     var source = this.template;
     var template = Handlebars.compile(source);
     var html = template(this.items);
