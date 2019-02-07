@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Tour</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="header">
+      <div>
+        Filter by
+        <div class="custom-select" style="width:200px;">
+          <select name="filter">
+            <option value="">Departure Date</option>
+            <option value="2017-01">January 2017</option>
+            <option value="2017-02">February 2017</option>
+            <option value="2017-03">March 2017</option>
+            <option value="2017-04">April 2017</option>
+            <option value="2017-05">May 2017</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        Sort by
+        <div class="custom-select" style="width:200px;">
+          <select name="sortable">
+            <option value="cheap">Lowest price</option>
+            <option value="expensive">Highest price</option>
+            <option value="long">Longest tour</option>
+            <option value="short">Shortest tour</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div id="content"></div>
+    <script id="tour-template" type="text/x-handlebars-template">
+      {{#each this}}
+        {{#if this.visible}}
+        <div class="box">
+          {{#if this.image_primary}}
+          <div class="image">
+              <img src="{{this.image_primary}}">
+              <div class="heart"></div>
+          </div>
+          {{/if}}
+          <div class="info">
+              {{#if this.discount}}<div class="triangle-topright"><div>{{this.discount}}</div></div>{{/if}}
+              <div class="name">{{this.name}}</div>
+              <div>
+                  {{#times this.rating_helper.full}}
+                    <span class="star on"></span>
+                  {{/times}}
+                  {{#times this.rating_helper.half}}
+                    <span class="star half"></span>
+                  {{/times}}
+                  {{#times this.rating_helper.empty}}
+                    <span class="star"></span>
+                  {{/times}}
+                  <span class="reviews">{{#if this.reviews}}{{this.reviews}}{{else}}0{{/if}} reviews</span></div>
+              <div class="description">{{this.description}}</div>
+              <div class="cities">
+                <div><div class="label">Destinations</div><span>{{this.cities.length}} destinations</span></div>
+                <div><div class="label">Starts/Ends in</div><span>{{this.cities.0.name}}</span></div>
+                <div><div class="label">Operator</div><span>{{this.operator_name}}</span></div>
+              </div>
+              <div class="dates">
+                  <div><div>Days</div><div class="right">From</div></div>
+                  <div><div class="bold">{{this.length}}</div><div class="right bold">€ {{this.priceRange.min}}</div></div>
+                  {{#if this.dates}}
+                  <div><div>{{this.spaces.0.start}}</div><div class="right">{{this.spaces.0.availability}} spaces left</div></div>
+                  <div><div>{{this.spaces.1.start}}</div><div class="right">{{this.spaces.1.availability}} spaces left</div></div>
+                  {{/if}}
+                </div>
+              <div class="action">
+                  <button type="button">View More</button>
+              </div>
+          </div>
+        </div>
+        {{/if}}
+      {{/each}}
+    </script>
+    <script src="dist/bundle.js"></script>
+  </body>
+</html>

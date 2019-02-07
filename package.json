@@ -1,0 +1,16 @@
+{
+  "name": "Tour",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "npm run webpack",
+    "webpack": "webpack -d --watch"
+  },
+  "dependencies": {
+    "handlebars": "^4.0.12",
+    "webpack": "^4.29.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.2.1"
+  }
+}
