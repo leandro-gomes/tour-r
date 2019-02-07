@@ -1,3 +1,4 @@
+import * as Handlebars from 'handlebars';
 import Tour from './modules/Tour';
 
 var t = new Tour('content');
@@ -25,6 +26,16 @@ function sortableEventHandler(event) {
     t.sortBy(event.target.value);
   }
 }
+
+/* Handlebars helper function */
+
+Handlebars.registerHelper('times', function(n, block) {
+  var accum = '';
+  for (var i = 0; i < n; ++i) accum += block.fn(i);
+  return accum;
+});
+
+/* Custom select. Credits: https://www.w3schools.com/howto/howto_custom_select.asp */
 
 var x, i, j, selElmnt, a, b, c;
 /* Look for any elements with the class "custom-select": */

@@ -19,7 +19,6 @@ code {
 .header {
   display: flex;
   flex-direction: row-reverse;
-  flex-direction: row-reverse;
   justify-content: space-around;
   color: #818d98;
   padding: 15px;
@@ -209,13 +208,17 @@ code {
 
 @media only screen and (min-width: 600px) {
   .header {
-    display: flex;
     flex-direction: row;
     justify-content: flex-end;
   }
 
   .header > div {
-    text-align: right;
+    padding-left: 15px;
+  }
+
+  .custom-select {
+    display: inline-block;
+    margin-left: 10px;
   }
 
   .box {
@@ -245,6 +248,7 @@ code {
   position: relative;
   font-size: 14px;
   font-weight: normal;
+  width: 200px;
 }
 
 .custom-select select {
