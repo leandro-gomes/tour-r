@@ -1,5 +1,13 @@
 import * as Handlebars from 'handlebars';
 
+/* Handlebars helper function */
+
+Handlebars.registerHelper('times', function(n, block) {
+  var accum = '';
+  for (var i = 0; i < n; ++i) accum += block.fn(i);
+  return accum;
+});
+
 class Tour {
   constructor(element) {
     this.element = document.getElementById(element);
@@ -31,6 +39,7 @@ class Tour {
   }
 
   _findClosestAvailability(arr) {
+    /* Avoid showing dates with no seats available */
     var availableArr = [],
       i = 0;
 
@@ -64,7 +73,7 @@ class Tour {
     return '-' + max + '%';
   }
 
-  _findMinMax(arr) {
+  _findMinMaxPrice(arr) {
     let min = arr[0].eur,
       max = arr[0].eur;
 
@@ -89,27 +98,39 @@ class Tour {
       : '';
   }
 
+  _ratingStarsHelper(rating) {
+    var obj = { full: 0, half: 0, empty: 5 };
+
+    if (rating) {
+      let fullStarsNumber = Math.floor(rating),
+        halfStarsNumber = Number.isInteger(rating) ? 0 : 1;
+      obj = {
+        full: fullStarsNumber,
+        half: halfStarsNumber,
+        empty: 5 - (fullStarsNumber + halfStarsNumber),
+      };
+    }
+
+    return obj;
+  }
+
   handleResponse(response) {
     this.items = response;
+
+    /* Data massage */
     for (var item of this.items) {
       item.image_primary = this._findPrimaryImage(item);
       item.priceRange = { min: 9999, max: 0 };
       if (item.dates.length > 0) {
-        item.priceRange = this._findMinMax(item.dates);
+        item.priceRange = this._findMinMaxPrice(item.dates);
         item.discount = this._findMaxDiscount(item.dates);
         item.spaces = this._findClosestAvailability(item.dates);
       }
-      item.rating_helper = { full: 0, half: 0 };
-      if (item.rating) {
-        item.rating_helper = {
-          full: Math.floor(item.rating),
-          half: Number.isInteger(item.rating) ? 0 : 1,
-        };
-      }
-      item.rating_helper.empty =
-        5 - (item.rating_helper.full + item.rating_helper.half);
+      item.rating_helper = this._ratingStarsHelper(item.rating);
       item.visible = true;
     }
+
+    /* Inital sorting */
     this.sortBy('cheap');
   }
 

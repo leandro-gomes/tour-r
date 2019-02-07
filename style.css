@@ -48,6 +48,8 @@ code {
 }
 
 .box > .image > img {
+  width: 100%;
+  height: auto;
   max-height: 100%;
   max-width: 100%;
   display: block;
@@ -238,6 +240,8 @@ code {
 .box > .details > .action button:active {
   transform: scale(0.99);
 }
+
+/* MEDIA QUERIES */
 
 @media only screen and (min-width: 768px) {
   .header {
