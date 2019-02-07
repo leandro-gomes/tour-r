@@ -1,7 +1,13 @@
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
 module.exports = {
-  entry: './src/app.js',
+  entry: {
+    bundle: './src/app.js',
+    'bundle.min': './src/app.js',
+  },
+  devtool: 'source-map',
   output: {
-    filename: 'bundle.js',
+    filename: '[name].js',
   },
   module: {
     rules: [
@@ -13,5 +19,13 @@ module.exports = {
   },
   node: {
     fs: 'empty',
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new UglifyJsPlugin({
+        include: /\.min\.js$/,
+      }),
+    ],
   },
 };
