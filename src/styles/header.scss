@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  color: #818d98;
+  padding: 15px;
+}
+
+.header-element {
+  font-size: 12px;
+  font-weight: bold;
+}

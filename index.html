@@ -5,12 +5,12 @@
     <meta charset="utf-8" />
 
     <title>Tour</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="dist/style.css" />
   </head>
 
   <body>
     <div class="header">
-      <div>
+      <div class="header-element">
         Filter by
         <div class="custom-select">
           <select name="filter">
@@ -23,7 +23,7 @@
           </select>
         </div>
       </div>
-      <div>
+      <div class="header-element">
         Sort by
         <div class="custom-select">
           <select name="sortable">
@@ -42,7 +42,7 @@
         <div class="box">
           {{#if this.image_primary}}
           <div class="image">
-              <img src="{{this.image_primary}}">
+              <img src="{{this.image_primary}}" alt="Tour image">
               <div class="heart"></div>
           </div>
           {{/if}}
