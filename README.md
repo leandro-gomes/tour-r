@@ -11,7 +11,8 @@ Booking tours made easy
 
 - install required modules with `npm install`
 - generate js bundle with `npm start`
+- generate and minimize css with `gulp sass`
 
 #### TODO
 
-- Convert CSS to SASS and make it modular
+- SEO optimization

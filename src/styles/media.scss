@@ -17,104 +17,106 @@ $breakpoint-mobile: 768px;
 
   .box {
     flex-direction: row;
-  }
 
-  .box > .image {
-    width: 200px;
-    height: 200px;
-  }
+    .image {
+      width: 200px;
+      height: 200px;
 
-  .box > .image > img {
-    height: 200px;
-    width: 200px;
-    max-height: initial;
-    max-width: initial;
-  }
+      .heart {
+        padding: 5px;
+      }
 
-  .box > .image > .heart {
-    padding: 5px;
-  }
+      img {
+        height: 200px;
+        width: 200px;
+        max-height: initial;
+        max-width: initial;
+      }
+    }
 
-  .box > .info,
-  .box > .details {
-    padding: 5px 25px;
-  }
+    .info,
+    .details {
+      padding: 5px 25px;
+    }
 
-  .box > .details {
-    flex: 0 0 200px;
-  }
+    .details {
+      flex: 0 0 200px;
 
-  .box > .details > .triangle-topright {
-    display: block;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 45px 45px 0;
-    border-color: transparent #e74c3c transparent transparent;
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    padding-top: 0;
-  }
+      .triangle-topright {
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 45px 45px 0;
+        border-color: transparent #e74c3c transparent transparent;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        padding-top: 0;
 
-  .box > .details > .triangle-topright div {
-    display: block;
-    text-align: center;
-    top: 7px;
-    left: 8px;
-    position: relative;
-    width: 45px;
-    color: #fff;
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
-    font-size: 12px;
-  }
+        div {
+          display: block;
+          text-align: center;
+          top: 7px;
+          left: 8px;
+          position: relative;
+          width: 45px;
+          color: #fff;
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+          font-size: 12px;
+        }
+      }
 
-  .box > .info > .triangle-topright {
-    display: none;
-  }
+      .price {
+        flex-direction: column-reverse;
 
-  .box > .info > .triangle-topright div {
-    display: none;
-  }
+        > div {
+          padding: 5px 0;
+          border-bottom: 1px solid #8d8e91;
 
-  .box > .details > .price {
-    flex-direction: column-reverse;
-  }
+          &:first-child {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            text-transform: lowercase;
 
-  .box > .details > .price > div {
-    padding: 5px 0;
-    border-bottom: 1px solid #8d8e91;
-  }
+            div {
+              padding: 0 2px;
+            }
+          }
 
-  .box > .details > .price > div:first-child {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    text-transform: lowercase;
-  }
+          &:last-child {
+            margin-left: initial;
+            padding-right: 10px;
+            text-align: right;
+          }
+        }
+      }
 
-  .box > .details > .price > div:first-child > div {
-    padding: 0 2px;
-  }
+      .dates {
+        font-size: 12px;
+      }
 
-  .box > .details > .price > div:last-child {
-    margin-left: initial;
-    padding-right: 10px;
-    text-align: right;
-  }
+      .action {
+        text-align: center;
 
-  .box > .details > .dates {
-    font-size: 12px;
-  }
+        button {
+          width: 100%;
+        }
+      }
+    }
 
-  .box > .details > .action {
-    text-align: center;
-  }
+    .info {
+      .triangle-topright {
+        display: none;
 
-  .box > .details > .action button {
-    width: 100%;
+        div {
+          display: none;
+        }
+      }
+    }
   }
 }

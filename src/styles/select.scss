@@ -24,12 +24,15 @@
     transform: rotate(135deg);
     vertical-align: top;
     width: 0.45em;
+    color: #999999;
   }
 
   /* Point the arrow upwards when the select box is open (active): */
-  &.select-arrow-active&:after {
-    transform: rotate(-45deg);
-    top: 14px;
+  &.select-arrow-active {
+    &:after {
+      transform: rotate(-45deg);
+      top: 14px;
+    }
   }
 }
 
@@ -58,7 +61,12 @@
   display: none;
 }
 
-.select-items div&:hover,
+.select-items div {
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
 .same-as-selected {
   background-color: rgba(0, 0, 0, 0.1);
 }
