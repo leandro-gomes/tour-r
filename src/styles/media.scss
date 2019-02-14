@@ -5,7 +5,7 @@ $breakpoint-mobile: 768px;
     flex-direction: row;
     justify-content: flex-end;
 
-    div {
+    > div {
       padding-left: 15px;
     }
   }
