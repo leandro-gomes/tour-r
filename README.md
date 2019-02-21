@@ -2,10 +2,10 @@
 
 Booking tours made easy
 
-#### Task
+#### Goals
 
 - create a search result page based on a mockup
-- please DO NOT use any JS/CSS frameworks, but the libraries and modules are allowed
+- not use any JS/CSS framework, just libraries and modules allowed
 
 #### Scripts
 
